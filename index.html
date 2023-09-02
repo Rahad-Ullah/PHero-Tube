@@ -14,9 +14,21 @@
         .font-inter{
             font-family: 'Inter', sans-serif;
         }
+        .bg-red{
+            background-color: #f10e34;
+        }
+        .btn:is(input[type="radio"]:checked){
+            background-color: #f10e34;
+            border: 1px solid #f10e34;
+            color: white;
+        }
+        .btn:is(input[type="radio"]:checked:hover){
+            background-color: #f10e34;
+            border: 1px solid #f10e34;
+        }
     </style>
 </head>
-<body class="px-14 py-5 font-inter">
+<body class="px-14 py-2 pb-14 font-inter">
     <header>
         <section class="flex justify-between items-center py-8 border-b">
             <figure>
@@ -26,35 +38,26 @@
                 <button class="btn bg-zinc-300 normal-case text-base rounded-md">Sort by view</button>
             </div>
             <div class="">
-                <button class="btn bg-rose-500 text-white normal-case text-base rounded-md px-6">Blog</button>
+                <button class="btn bg-red text-white normal-case text-base rounded-md px-6">Blog</button>
             </div>
         </section>
         <section class="flex justify-center items-center gap-5 py-8">
-            <button id="1001" class="btn btn-sm bg-zinc-300 text-zinc-700 normal-case px-5 rounded focus:bg-rose-500 focus:text-white">All</button>
-            <button id="1002" class="btn btn-sm bg-zinc-300 text-zinc-700 normal-case px-5 rounded focus:bg-rose-500 focus:text-white">Music</button>
-            <button id="1003" class="btn btn-sm bg-zinc-300 text-zinc-700 normal-case px-5 rounded focus:bg-rose-500 focus:text-white">Comedy</button>
-            <button id="1004" class="btn btn-sm bg-zinc-300 text-zinc-700 normal-case px-5 rounded focus:bg-rose-500 focus:text-white">Drawing</button>
+            <input id="1000" type="radio" name="options" class="btn btn-sm bg-zinc-300 text-zinc-700 normal-case px-5 rounded" aria-label="All" checked>
+            <input id="1001" type="radio" name="options" class="btn btn-sm bg-zinc-300 text-zinc-700 normal-case px-5 rounded" aria-label="Music">
+            <input id="1003" type="radio" name="options" class="btn btn-sm bg-zinc-300 text-zinc-700 normal-case px-5 rounded" aria-label="Comedy">
+            <input id="1005" type="radio" name="options" class="btn btn-sm bg-zinc-300 text-zinc-700 normal-case px-5 rounded" aria-label="Drawing">
         </section>
     </header>
     <main>
         <section id="video-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="space-y-5">
+            <!-- Card is appending here -->
+        </section>
+        <section id="search-empty" class="flex justify-center items-center py-40 hidden">
+            <div class="flex flex-col justify-center items-center gap-8 max-w-md">
                 <figure>
-                    <img src="images/d72ed80d0c125cb4d7fdda46f2bb42c0.jpeg" alt="image" class="rounded-lg">
+                    <img src="images/Icon.png" alt="not found">
                 </figure>
-                <div class="flex gap-3">
-                    <figure class="">
-                        <img src="images/user1.jpeg" alt="user-photo" class="w-16 rounded-full">
-                    </figure>
-                    <div class="space-y-2">
-                        <h3 class="font-bold text-zinc-950">Building a Winning UX Strategy Using the Kano Model</h3>
-                        <div class="flex gap-2">
-                            <p class="text-sm text-zinc-700">Awlad Hossain</p>
-                            <img src="images/tickmark.png" alt="">
-                        </div>
-                        <p class="text-sm text-zinc-700">91K views</p>
-                    </div>
-                </div>
+                <h2 class="text-3xl font-bold text-center text-zinc-900">Oops!! Sorry, There is no content here</h2>
             </div>
         </section>
     </main>
