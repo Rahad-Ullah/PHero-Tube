@@ -30,18 +30,61 @@
 </head>
 <body class="px-14 py-2 pb-14 font-inter">
     <header>
-        <section class="flex justify-between items-center py-8 border-b">
+        <section class="flex justify-center items-center gap-2 py-8 border-b">
             <figure>
                 <img src="images/Logo.png" alt="">
             </figure>
-            <div class="">
-                <button id="sort-by-view" class="btn normal-case text-base rounded-md">Sort by view</button>
-            </div>
-            <div class="">
-                <button class="btn bg-red text-white normal-case text-base rounded-md px-6">Blog</button>
-            </div>
+            <h1 class="text-4xl font-semibold text-zinc-950">Blog</h1>
         </section>
     </header>
+    <main>
+        <section>
+            <article>
+                <h2 class="text-4xl font-medium my-12">Discuss the scope of <span class="italic">var</span>, <span class="italic">let</span> , and <span class="italic">const</span></h2>
+                <p>In JavaScript, the scope of variables declared with var, let, and const differs, which affects where these variables are accessible and how they behave. Let's discuss each of them:</p>
+                <h3 class="text-xl font-semibold my-10">1. var:</h3>
+                <p class="my-5">Function Scope: Variables declared with var are function-scoped. This means they are only accessible within the function in which they are declared.</p>
+                <p class="my-5">Hoisting: Variables declared with var are hoisted to the top of their containing function or global scope. This means you can access a var variable before it's declared in code, but its value will be undefined until the assignment.</p>
+                <p class="my-5">Global Scope: If declared outside of any function, a var variable becomes a global variable, accessible throughout the entire script.</p>
+            </article>
+            <article>
+                <p>In JavaScript, the scope of variables declared with var, let, and const differs, which affects where these variables are accessible and how they behave. Let's discuss each of them:</p>
+                <h3 class="text-xl font-semibold my-10">2. let:</h3>
+                <p class="my-5">Function Scope: Variables declared with var are function-scoped. This means they are only accessible within the function in which they are declared.</p>
+                <p class="my-5">Hoisting: Variables declared with var are hoisted to the top of their containing function or global scope. This means you can access a var variable before it's declared in code, but its value will be undefined until the assignment.</p>
+                <p class="my-5">Global Scope: If declared outside of any function, a var variable becomes a global variable, accessible throughout the entire script.</p>
+            </article>
+            <article>
+                <p>In JavaScript, the scope of variables declared with var, let, and const differs, which affects where these variables are accessible and how they behave. Let's discuss each of them:</p>
+                <h3 class="text-xl font-semibold my-10">3. const:</h3>
+                <p class="my-5">Function Scope: Variables declared with var are function-scoped. This means they are only accessible within the function in which they are declared.</p>
+                <p class="my-5">Hoisting: Variables declared with var are hoisted to the top of their containing function or global scope. This means you can access a var variable before it's declared in code, but its value will be undefined until the assignment.</p>
+                <p class="my-5">Global Scope: If declared outside of any function, a var variable becomes a global variable, accessible throughout the entire script.</p>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h2 class="text-4xl font-medium my-12">Tell us the use cases of null and undefined</h2>
+                <p>null and undefined are two distinct values in JavaScript, and they are used in different contexts.</p>
+                <h3 class="text-xl font-semibold my-10">Use Cases for null:</h3>
+                <p class="my-5">Intentional Absence of Value:</p>
+                <p class="my-5">Resetting Values</p>
+                <h3 class="text-xl font-semibold my-10">Use Cases for undefined:</h3>
+                <p class="my-5">Default Function Parameters </p>
+                <p class="my-5">Variables Without Initialization</p>
+                <p class="my-5">Properties That Don't Exist</p>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h2 class="text-4xl font-medium my-12">What do you mean by REST API?</h2>
+                <p>REST API, which stands for Representational State Transfer Application Programming Interface, is a set of architectural principles and constraints for designing and interacting with web services. It's a widely used approach for building web services because of its simplicity, scalability, and ease of use.</p>
+                <p class="my-5">Statelessness: Each request from a client to a server must contain all the information needed to understand and fulfill the request. The server should not store any information about the client's state between requests. This makes REST APIs scalable and easy to cache.</p>
+                <p class="my-5">Client-Server Architecture: REST separates the client from the server, allowing them to evolve independently. Clients and servers can be developed and scaled independently of each other.</p>
+                <p class="my-5">Resource-Based: Resources (data entities) are at the center of a REST API. Each resource is identified by a unique URL, and clients interact with these resources through the standard HTTP methods.</p>
+            </article>
+        </section>
+    </main>
 
     <script src="js/main.js"></script>
 </body>

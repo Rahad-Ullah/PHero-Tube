@@ -129,7 +129,9 @@ const convertTime = (time) => {
 }
 
 
-
+document.getElementById('blog').addEventListener('click', () => {
+    window.location.href = 'blog.html'
+})
 
 
 loadVideos(1000)
