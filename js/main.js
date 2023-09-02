@@ -3,7 +3,9 @@ const loadVideos = async (categoryId) =>{
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
     const data = await res.json();
     const videos = data.data;
+
     displayVideo(videos);
+    handleSortByView(videos);
 }
 
 // Display videos of the specific category
@@ -14,11 +16,17 @@ const displayVideo = (videos) => {
     handleSearchEmpty(videos);
 
     videos.forEach(video => {
+        const postSeconds = parseFloat(video?.others?.posted_date) || 0;
+        const postTime = convertTime(postSeconds);
+
         const videoCard = document.createElement('div');
         videoCard.classList.add('space-y-5');
         videoCard.innerHTML = `
-        <figure class="">
-            <img src="${video?.thumbnail}" alt="image" class="rounded-lg h-48 w-full">
+        <figure class="relative">
+            <img src="${video?.thumbnail}" alt="image" class="rounded-lg h-48 w-full z-0">
+            <div id="post-time" class="bg-zinc-900 absolute bottom-2 right-2 z-10 p-1 rounded">
+                <p class="text-xs text-white">${postTime}</p>
+            </div>
         </figure>
         <div class="flex gap-3">
             <figure class="">
@@ -35,6 +43,8 @@ const displayVideo = (videos) => {
         </div>
         `
         videoContainer.appendChild(videoCard);
+        
+        handlePostTime(postSeconds);
     });
 }
 
@@ -64,12 +74,23 @@ const displayCategories = (categories) =>{
 // Activate categories buttons
 const handleCategories = (categories) =>{
     categories.forEach(category =>{
-
         const categoryId = category.category_id;
         document.getElementById(categoryId).addEventListener('click', () => {
-            loadVideos(categoryId)
+        loadVideos(categoryId);
         })
     })
+}
+
+
+// Handle Post Time
+const handlePostTime = (postSeconds) =>{
+    const div = document.getElementById('post-time');
+        if(postSeconds < 1){
+            div.classList.add('hidden')
+        }
+        else{
+            div.classList.remove('hidden')
+        }
 }
 
 
@@ -83,6 +104,32 @@ const handleSearchEmpty = (videos) => {
         document.getElementById('search-empty').classList.add('hidden');    
     }
 }
+
+
+// Handle Sort by View
+const handleSortByView = (videos) =>{
+    document.getElementById('sort-by-view').addEventListener('click', function () {
+        const sortedVidoes = videos.sort((card1, card2) =>{
+            const video1 = parseFloat(card1?.others?.views);
+            const video2 = parseFloat(card2?.others?.views);
+            return video1 < video2 ? 1 : video1 > video2 ? -1 : 0;
+        })
+        displayVideo(sortedVidoes);
+    })
+}
+
+
+// handle post Time
+const convertTime = (time) => {
+    const seconds = parseFloat(time);
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+
+    return `${hours} hrs ${minutes} min ago`;
+}
+
+
+
 
 
 loadVideos(1000)
